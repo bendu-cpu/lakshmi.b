@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Player Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://via.placeholder.com/1920x1080.png?text=Football+Field') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .form-box {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .input-field {
+            margin: 15px 0;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            background: transparent;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background-color: #ffcc00;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: #ff9900;
+        }
+
+        .image-box {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .image-box img {
+            width: 100%;
+            max-width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h2>Football Player Details</h2>
+        <form id="detailsForm">
+            <div class="input-field">
+                <input type="text" id="name" placeholder="Name" required>
+            </div>
+            <div class="input-field">
+                <input type="text" id="address" placeholder="Address" required>
+            </div>
+            <div class="input-field">
+                <input type="tel" id="contact" placeholder="Contact Number" required>
+            </div>
+            <div class="input-field">
+                <input type="number" id="age" placeholder="Age" required>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+
+        <div class="image-box">
+            <img src="https://via.placeholder.com/300x200?text=Football+Image" alt="Football Image">
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById('detailsForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get input values
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const contact = document.getElementById('contact').value;
+            const age = document.getElementById('age').value;
+
+            // Save form data to localStorage (you can also save it to a database in a real app)
+            const playerDetails = {
+                name,
+                address,
+                contact,
+                age
+            };
+
+            localStorage.setItem('playerDetails', JSON.stringify(playerDetails));
+
+            alert("Player details saved successfully!");
+        });
+    </script>
+</body>
+</html>
